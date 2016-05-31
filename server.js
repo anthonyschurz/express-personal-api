@@ -41,12 +41,12 @@ app.get('/', function homepage(req, res) {
      name: 'Donald John Trump',
      image: 'http://bit.ly/1LL56b3',
      residence: 'Trump Tower, Manhattan',
-     net_worth: '4.5B' || '10B'
+     net_worth: '4.5B' || '10B',
      wives: [
           { name: 'Ivana Zelníčková', status: 'ex' },
           { name: 'Marla Maples', status: 'ex' },
           { name: 'Melania Knauss', status: 'active' },
-          ]
+        ],
      children: [
           { name: 'Ivanka Trump', relationship: 'daughter', would_date: true },
           { name: 'Eric Trump', relationship: 'son' },
@@ -54,6 +54,7 @@ app.get('/', function homepage(req, res) {
           { name: 'Tiffany Trump', relationship: 'daughter' },
           { name: 'Barron Trump', relationship: 'son' },
           ]
+ });
  });
 
 // Get a 'yuge' of varying length
@@ -90,6 +91,8 @@ var wallArray = ["_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
 var wallConstructor = wallArray.join("\n");
 res.json({ message: "\n" + wallConstructor })
 });
+
+//Get tweets
 
 
 /**********
