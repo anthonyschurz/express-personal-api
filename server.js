@@ -11,14 +11,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
  **********/
 
 // Serve static files from the `/public` directory:
-// i.e. `/images`, `/scripts`, `/styles`
+
 app.use(express.static('public'));
 
 /*
@@ -39,6 +39,8 @@ app.get('/', function homepage(req, res) {
  app.get('/api/profile', function profile(req, res) {
    res.json({
      name: 'Donald John Trump',
+     documentation_url: "https://github.com/anthonyschurz/trumpapi",
+     base_url: "https://git.heroku.com/cryptic-savannah-56299.git",
      image: 'http://bit.ly/1LL56b3',
      residence: 'Trump Tower, Manhattan',
      net_worth: '4.5B' || '10B',
@@ -94,6 +96,38 @@ res.json({ message: "\n" + wallConstructor })
 
 //Get tweets
 
+
+// create new warpath from the form data
+
+app.post('/api/warpath', function warpath(req,res){
+  var warPath = new db.Warpath({
+    city: req.body.city,
+    country: req.body.country,
+    description: req.body.description,
+    date: req.body.date,
+    scalps: req.body.duration,
+    picture: req.body.picture
+  });
+
+  // save visit to database
+  warPath.save(function(err, visit){
+    if (err) {
+      return console.log("Error saving visit: " + err);
+    }
+    console.log("Saved ", Warpath.city);
+    res.json(Warpath);
+  });
+});
+
+// delete Democrats
+app.delete('/api/democrat/:id', function(req, res) {
+  console.log(req.params)
+  var visitId = req.params.id;
+
+  db.Democrats.findOneAndRemove({ _id: democratId }, function (err, deletedDemocrat) {
+    res.json(deletedDemocrat);
+  });
+});
 
 /**********
  * SERVER *
