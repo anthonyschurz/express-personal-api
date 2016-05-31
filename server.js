@@ -38,10 +38,10 @@ app.get('/', function homepage(req, res) {
 
  app.get('/api/profile', function profile(req, res) {
    res.json({
-     name: "Donald John Trump",
-     image: "http://bit.ly/1LL56b3",
-     residence: "Trump Tower, Manhattan",
-     net_worth: "4.5B" || "10B"
+     name: 'Donald John Trump',
+     image: 'http://bit.ly/1LL56b3',
+     residence: 'Trump Tower, Manhattan',
+     net_worth: '4.5B' || '10B'
      wives: [
           { name: 'Ivana Zelníčková', status: 'ex' },
           { name: 'Marla Maples', status: 'ex' },
