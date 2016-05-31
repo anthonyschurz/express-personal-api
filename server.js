@@ -31,32 +31,32 @@ app.get('/', function homepage(req, res) {
 
 
 /*
- * JSON API Endpoints
- */
-
-app.get('/api', function api_index(req, res) {
-  // TODO: Document all your api endpoints below
-  res.json({
-    message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
-    ]
-  })
-});
-
-/*
  * JSON Endpoints
  */
 
+ // Profile of The Donald
+
  app.get('/api/profile', function profile(req, res) {
-   
-   res.json({message: "y" + uString + "ge"});
+   res.json({
+     name: "Donald John Trump",
+     image: "http://bit.ly/1LL56b3",
+     residence: "Trump Tower, Manhattan",
+     net_worth: "4.5B" || "10B"
+     wives: [
+          { name: 'Ivana Zelníčková', status: 'ex' },
+          { name: 'Marla Maples', status: 'ex' },
+          { name: 'Melania Knauss', status: 'active' },
+          ]
+     children: [
+          { name: 'Ivanka Trump', relationship: 'daughter', would_date: true },
+          { name: 'Eric Trump', relationship: 'son' },
+          { name: 'Donald Trump, Jr.', relationship: 'son' },
+          { name: 'Tiffany Trump', relationship: 'daughter' },
+          { name: 'Barron Trump', relationship: 'son' },
+          ]
  });
 
+// Get a 'yuge' of varying length
 
 app.get('/api/yuge', function yuge(req, res) {
   var uGenerator = Math.floor(Math.random()*100);
@@ -64,6 +64,7 @@ app.get('/api/yuge', function yuge(req, res) {
   res.json({message: "y" + uString + "ge"});
 });
 
+// Build a wall
 
 app.get('/api/wall', function wall(req, res) {
 //if request is in Spanish, generate wall
