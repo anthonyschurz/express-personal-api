@@ -51,9 +51,3 @@ var getTweets = function(client, params, callback) {
 };
 
 getTweets(client, params, function() {});
-
-
-
-//db.mycoll.aggregate(
-//   { $sample: { size: 1 } }
-//)

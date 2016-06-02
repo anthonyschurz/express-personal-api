@@ -97,35 +97,21 @@ res.json({ message: "\n" + wallConstructor })
 //Get tweets
 
 
-// create new warpath from the form data
+// create new nickname from the form data
 
-app.post('/api/warpath', function warpath(req,res){
-  var warPath = new db.Warpath({
-    city: req.body.city,
-    country: req.body.country,
-    description: req.body.description,
-    date: req.body.date,
-    scalps: req.body.duration,
-    picture: req.body.picture
+app.post('/api/nickname', function nickname(req,res){
+  var nickname = new db.Nickname({
+    nickname: req.body.nickname
   });
 
-  // save visit to database
-  warPath.save(function(err, visit){
+// save nickname 
+
+nickname.save(function(err, visit){
     if (err) {
-      return console.log("Error saving visit: " + err);
+      return console.log("Error saving nickname: " + err);
     }
-    console.log("Saved ", Warpath.city);
-    res.json(Warpath);
-  });
-});
-
-// delete Democrats
-app.delete('/api/democrat/:id', function(req, res) {
-  console.log(req.params)
-  var visitId = req.params.id;
-
-  db.Democrats.findOneAndRemove({ _id: democratId }, function (err, deletedDemocrat) {
-    res.json(deletedDemocrat);
+    console.log("Saved ", Nickname.name);
+    res.json(Nickname);
   });
 });
 
